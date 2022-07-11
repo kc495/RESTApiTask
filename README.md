@@ -4,7 +4,7 @@
 Use
 ---
 
-* [gitpod](https://gitpod.io#https://github.com/calaldees/RESTApiTask)
+* [gitpod](https://gitpod.io#https://github.com/kc495/RESTApiTask)
 * `make run`
 
 Task
