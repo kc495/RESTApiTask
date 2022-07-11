@@ -5,7 +5,7 @@ const port = 8000
 app.use(express.json());
 
 const attendees = [
-  {"foo": "bar43253"},
+
 ]
 
 app.get('/', (req, res) => {
