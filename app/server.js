@@ -2,10 +2,19 @@ const express = require('express')
 const app = express()
 const port = 8000
 
+const attendees = [
+  {"foo": "bar43253"},
+]
+
 app.get('/', (req, res) => {
-  //res.send('Hello World!')
   res.sendFile('client.html',{root: __dirname})
 })
+
+
+app.get('/attendees/', (req, res) => {
+  res.json(attendees);
+}
+)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
