@@ -4,11 +4,13 @@ const port = 8000
 
 app.use(express.json());
 
- attendees = [
-  {"id": 123, "name": "tests", "notes": "somenotes"},
-  {"id": 223, "name": "tests", "notes": "somenotes"}
+var cors = require('cors')
+app.use(cors())
 
-]
+ attendees = [
+  
+ ]
+
 
 app.get('/', (req, res) => {
   res.sendFile('client.html',{root: __dirname})
