@@ -17,6 +17,14 @@
       <input name= "Notes" placeholder= "Notes" v-model= "attendee.notes">
       <button> RSPV</button>
     </form>
+    <h2>List</h2>
+    <ul>
+      <li v-for="aa in attendees">
+        <span>{{aa.id}}</span>
+        <span>{{aa.name}}</span>
+        <span>{{aa.notes}}</span>
+      </li>
+    </ul>
 </div>
 
 <script>
