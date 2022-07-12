@@ -1,1 +1,66 @@
-hello
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link id="favicon" rel="shortcut icon" type="image/png" href="data:image/png;base64,....==" />
+	<title>RSPV App</title>
+
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <h1>RSPV APP</h1>
+
+<div id="app">
+    <form @submit.prevent="addAttendee">
+      <input name= "Name" placeholder= "Name" v-model= "attendee.name">
+      <input name= "Notes" placeholder= "Notes" v-model= "attendee.notes">
+      <button> RSPV</button>
+    </form>
+</div>
+
+<script>
+  const { createApp } = Vue
+  const urlAPI = ''
+
+  createApp({
+    data() {
+      return {
+        attendee: {
+            id: Math.random(),
+            name: "",
+            notes: "",
+        },
+        attendees: [],
+      }
+    },
+    created(){
+      this.updateAttendees()
+    },
+    methods: {
+      updateAttendees() {
+        fetch(`${urlAPI}/attendees`, {
+          method: 'GET',
+        })
+          .then(response => response.json())
+          .then(json => this.attendees = json)
+        .catch(err => console.error(err))
+      },
+      
+      addAttendee() {
+          fetch(`${urlAPI}/attendee`, {
+				     method: 'POST',
+			       headers: {'Content-Type': 'application/json'},
+				     body: JSON.stringify(this.attendee),
+    			})
+				     .then(response => response.json())
+				     .then(json => console.log('addAttendee()', json))
+             .then(()=> this.updateAttendees())
+			    .catch(err => console.error(err));
+		  }
+    }    
+  }).mount('#app')
+</script>
+
+</body>
+</html>
