@@ -7,9 +7,7 @@ app.use(express.json());
 var cors = require('cors')
 app.use(cors())
 
- attendees = [
-  
- ]
+ attendees = []
 
 
 app.get('/', (req, res) => {
